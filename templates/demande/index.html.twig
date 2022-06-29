@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande index{% endblock %}
+
+{% block body %}
+    <h1>Demande index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Photo</th>
+                <th>Identite</th>
+                <th>Type</th>
+                <th>Etat</th>
+                <th>Datedemande</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for demande in demandes %}
+            <tr>
+                <td>{{ demande.id }}</td>
+                <td>{{ demande.nom }}</td>
+                <td>{{ demande.prenom }}</td>
+                <td>{{ demande.email }}</td>
+                <td><img width="80px" src="{{asset('uploads/photos/'~ demande.photo ~'')}}"/></td>
+                <td><a href="{{asset('uploads/identites/'~ demande.identite ~'')}}" target="_blank">Télécharger</a></td>
+                <td>{{ demande.type }}</td>
+                <td>{{ demande.etat }}</td>
+                <td>{{ demande.datedemande ? demande.datedemande|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_demande_show', {'id': demande.id}) }}">show</a>
+                    <a href="{{ path('app_demande_edit', {'id': demande.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_demande_new') }}">Create new</a>
+{% endblock %}

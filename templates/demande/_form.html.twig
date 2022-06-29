@@ -1,0 +1,55 @@
+{{ form_start(form) }}
+<div class="col-md-12 mb-5">
+   
+
+         <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">Nom</label>
+                  {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname">Prenom</label>
+                  {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+         </div>
+
+         <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Email</label> 
+                  {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+              </div>
+
+              <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Photo de profil</label> 
+                  {{ form_widget(form.photo, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+              </div>
+
+            <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Pièce d'identité</label> 
+                  {{ form_widget(form.identite, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+            </div>
+
+               <div class="row form-group">
+                
+                <div class="col-md-12">
+                  <label class="text-black" for="subject">Type de compte</label> 
+                  {{ form_widget(form.type, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+              </div>
+
+               <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Envoyer ma demande" class="btn btn-primary btn-md text-white">
+                </div>
+              </div>
+</div>
+
+{{ form_end(form) }}

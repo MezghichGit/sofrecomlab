@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FrontController!{% endblock %}
+
+{% block slider %}
+<div class="row">
+          <div class="col-md-12 mb-5">
+
+            
+            <a name="formdevise"></a>
+            <form action="" class="p-5 bg-white" method="POST">
+              
+              
+              <h2 class="h4 text-black mb-5">Conversion de devises</h2> 
+
+              <div class="row mb-5">
+                <div class="col-md-6 mb-3 mb-md-0 form-inline">
+                  <label class="text-black mr-3" for="monnaie">Votre monnaie</label>
+                  <select name="monnaieDepart" id="monnaies">
+                    <option value="euros">Euros</option>
+                    <option value="dollars">Dollars</option>
+                  
+                  </select>
+                  
+                </div>
+                <div class="col-md-6 form-inline">
+                  <label class="text-black mr-3" for="montant">Montant</label>
+                  <input name="montant" type="text" id="montant" class="form-control">
+                </div>
+              </div>
+
+              <div class="row mb-5">
+                <div class="col-md-6 mb-3 mb-md-0 form-inline">
+                  <label class="text-black mr-4" for="monnaie">Monnaie cible</label>
+                  <select name="monnaieCible" id="monnaiecible">
+                    <option value="dollars">Dollars</option>
+                    <option value="euros">Euros</option>
+                  </select>
+                  
+                </div>
+                <div class="col-md-6 form-inline">
+                  <label class="text-black mr-3" for="resultat">Resultat</label>
+                  <input type="text" id="resultat" class="form-control" value="{{result}}">
+                </div>
+            </div>
+              
+
+              
+               
+
+              
+                <div class="col-md-6">
+                  <input type="submit" value="Calculer" class="btn btn-primary btn-md text-white">
+                </div>
+              
+
+  
+            </form>
+          </div>
+          
+  </div>
+{% endblock %}
