@@ -80,7 +80,7 @@ class DemandeType extends AbstractType
             ->add('etat', HiddenType::class, [
                 'data' => 'Nouvelle',
             ])
-            ->add('datedemande', HiddenType::class)
+           ->add('datedemande',DateTimeType::class)
 
         ;
     }

@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Service\MailerService;
 #[Route('/demande')]
 class DemandeController extends AbstractController
 {
@@ -30,7 +31,7 @@ class DemandeController extends AbstractController
     }
 
     #[Route('/new', name: 'app_demande_new', methods: ['GET', 'POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request, MailerService $monMailer): Response
     {
         $demande = new Demande();
         $form = $this->createForm(DemandeType::class, $demande);
@@ -80,7 +81,9 @@ class DemandeController extends AbstractController
             $entityManager = $this->doctrine->getManager();
             $entityManager->persist($demande);
             $entityManager->flush();
+            // partie envois de mail
 
+            $monMailer->sendEmail($demande->getNom(),$demande->getPrenom(),$demande->getEmail());
             return $this->redirectToRoute('app_demande_index');
         }
 
